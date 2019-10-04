@@ -14,6 +14,9 @@
 - /categories/{category}/reserve
 - json-eval($.hospital)
 - get-property('Hospital')
+Case 1: grand oak community hospital
+Case 2:  clemency medical center
+Case 3:  pine valley community hospital
 - input.json
 
 3)
