@@ -1,0 +1,31 @@
+1)
+- http://localhost:9090/healthcare/{uri.var.category}
+- /healthcare
+- /querydoctor/{category}
+
+2)
+- http://localhost:9090/grandoaks/categories/{uri.var.category}/reserve
+- http://localhost:9090/clemency/categories/{uri.var.category}/reserve
+- http://localhost:9090/pinevalley/categories/{uri.var.category}/reserve
+- /categories/{category}/reserve
+- json-eval($.hospital)
+- input.json
+
+3)
+- entrada.json
+- saida.json
+
+4)
+- http://localhost:9090/{uri.var.hospital}/categories/appointments/{uri.var.appointment_id}/fee
+- http://localhost:9090/healthcare/payments
+- json-eval($.cardNo)
+- uri.var.hospital
+- uri.var.appointment_id
+- json-eval($.doctor)
+- json-eval($.patient)
+- json-eval($.actualFee)
+- $ctx:uri.var.appointment_id
+- $ctx:doctor_details
+- $ctx:patient_details
+- $ctx:actual_fee
+- $ctx:card_number

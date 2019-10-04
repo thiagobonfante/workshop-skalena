@@ -1,0 +1,8 @@
+{
+  "appointmentNumber": $1, 
+  "doctor": $2,
+  "patient": $3,
+  "fee": $4,
+  "confirmed": "false",
+  "card_number": "$5"
+}
