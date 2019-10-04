@@ -2,6 +2,10 @@
 - http://localhost:9090/healthcare/{uri.var.category}
 - /healthcare
 - /querydoctor/{category}
+- cardiology
+- gynaecology
+- ent
+- pediatric
 
 2)
 - http://localhost:9090/grandoaks/categories/{uri.var.category}/reserve
