@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/healthcare" name="HealthcareAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/querydoctor/{category}">
+        <inSequence>
+            <log description="log de entrada" level="custom">
+                <property name="log-entrada" value="Bem vindo a API de Saude"/>
+            </log>
+            <send>
+                <endpoint key="QueryDoctorEP"/>
+            </send>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/categories/{category}/reserve">
+        <inSequence>
+            <property description="nome do hospital" expression="json-eval($.hospital)" name="Hospital" scope="default" type="STRING"/>
+            <switch source="get-property('Hospital')">
+                <case regex="grand oak community hospital">
+                    <log description="log1" level="custom">
+                        <property name="log1" value="Entrou no fluxo 1"/>
+                    </log>
+                    <send>
+                        <endpoint key="GrandOakEP"/>
+                    </send>
+                </case>
+                <case regex="clemency medical center">
+                    <log description="log2" level="custom">
+                        <property name="log2" value="Entrou no fluxo 2"/>
+                    </log>
+                    <send>
+                        <endpoint key="ClemencyEP"/>
+                    </send>
+                </case>
+                <case regex="pine valley community hospital">
+                    <log description="log3" level="custom">
+                        <property name="log3" value="Entrou no fluxo 3"/>
+                    </log>
+                    <send>
+                        <endpoint key="PineValleyEP"/>
+                    </send>
+                </case>
+                <default>
+                    <log description="log4" level="custom">
+                        <property name="log4" value="Erro nao encontrei o fluxo"/>
+                    </log>
+                    <drop description="encerrado"/>
+                </default>
+            </switch>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
