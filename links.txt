@@ -13,6 +13,7 @@
 - http://localhost:9090/pinevalley/categories/{uri.var.category}/reserve
 - /categories/{category}/reserve
 - json-eval($.hospital)
+- get-property('Hospital')
 - input.json
 
 3)
